@@ -113,11 +113,11 @@ var soloKanbanniang = {
   },
   _initMenu: function() {
     $('#soloKanbanniangHome').click(function() {
-      window.location = latkeConfig.servePath;
+      window.location = Label.servePath;
     });
 
     $('#soloKanbanniangRSS').click(function() {
-      window.location = latkeConfig.servePath + '/rss.xml';
+      window.location = Label.servePath + '/rss.xml';
     });
 
     $('#soloKanbanniangGithub').click(function() {
@@ -129,7 +129,7 @@ var soloKanbanniang = {
     });
 
     $('#soloKanbanniangChange').click(function() {
-      loadlive2d('soloKanbanniang', latkeConfig.servePath +
+      loadlive2d('soloKanbanniang', Label.servePath +
           '/plugins/kanbanniang/assets/model?t=' + (new Date()).getTime(),
           soloKanbanniang.showMessage('我的新衣服好看嘛', 3000, true));
     });
@@ -156,7 +156,7 @@ var soloKanbanniang = {
     }
 
     if (referrer.href !== '' && referrer.hostname !==
-        latkeConfig.servePath.split('//')[1].split(':')[0]) {
+        Label.servePath.split('//')[1].split(':')[0]) {
       var referrer = document.createElement('a');
       referrer.href = document.referrer;
       text = 'Hello! 来自 <span style="color:#4285f4;">' + referrer.hostname +
@@ -237,7 +237,7 @@ if (navigator.userAgent.indexOf('MSIE') === -1) {
             success: function () {
                 soloKanbanniang.init();
 
-                loadlive2d('soloKanbanniang', latkeConfig.servePath +
+                loadlive2d('soloKanbanniang', Label.servePath +
                     '/plugins/kanbanniang/assets/model?t=' + (new Date()).getTime());
             }
         });
