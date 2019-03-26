@@ -203,13 +203,6 @@ var soloKanbanniang = {
     this._initMove();
     window.setInterval(soloKanbanniang.showChat, 30000);
 
-    var re = /solo/;
-    console.log(re);
-    re.toString = function() {
-      soloKanbanniang.showMessage('哈哈，你打开了控制台，是想要看看我的秘密吗？', 5000, true);
-      return '';
-    };
-
     $(document).on('copy', function() {
       soloKanbanniang.showMessage('你都复制了些什么呀，转载要记得加上出处哦', 5000, true);
     });
@@ -231,7 +224,7 @@ if (navigator.userAgent.indexOf('MSIE') === -1) {
         }
 
         $.ajax({
-            url: 'https://cdn.jsdelivr.net/npm/kanbanniang/live2d.js',
+            url: 'https://cdn.jsdelivr.net/npm/kanbanniang@0.1.6/live2d.js',
             dataType: "script",
             cache: true,
             success: function () {
