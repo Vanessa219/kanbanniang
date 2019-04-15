@@ -216,7 +216,7 @@ var soloKanbanniang = {
   }
 };
 
-if (navigator.userAgent.indexOf('MSIE') === -1) {
+if (navigator.userAgent.indexOf('MSIE') === -1 && $(window).width() > 720) {
     $(document).ready(function () {
         if (sessionStorage.getItem('soloKanbanniang') === 'close') {
             $('.solo-kanbanniang').remove();

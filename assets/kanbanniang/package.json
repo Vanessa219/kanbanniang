@@ -1,9 +1,9 @@
 {
   "name": "kanbanniang",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "kanbanniang model",
   "author": " Vanessa <v@b3log.org> (http://vanessa.b3log.org)",
-  "homepage": "ttps://github.com/b3log/kanbanniang",
+  "homepage": "https://github.com/b3log/kanbanniang",
   "license": "MIT",
   "repository": {
     "type": "git",
