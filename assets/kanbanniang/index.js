@@ -129,8 +129,7 @@ var soloKanbanniang = {
     });
 
     $('#soloKanbanniangChange').click(function() {
-      loadlive2d('soloKanbanniang', Label.servePath +
-          '/plugins/kanbanniang/assets/model?t=' + (new Date()).getTime(),
+      loadlive2d('soloKanbanniang', 'https://hacpai.com/kanbanniang/model?t=' + (new Date()).getTime(),
           soloKanbanniang.showMessage('我的新衣服好看嘛', 3000, true));
     });
 
@@ -230,8 +229,7 @@ if (navigator.userAgent.indexOf('MSIE') === -1 && $(window).width() > 720) {
             success: function () {
                 soloKanbanniang.init();
 
-                loadlive2d('soloKanbanniang', Label.servePath +
-                    '/plugins/kanbanniang/assets/model?t=' + (new Date()).getTime());
+                loadlive2d('soloKanbanniang', 'https://hacpai.com/kanbanniang/model?t=' + (new Date()).getTime());
             }
         });
     });
