@@ -2,7 +2,7 @@
 
 ## 简介
 
-[kanbanniang](https://github.com/b3log/kanbanniang) 收集并整理了多款 Live2D 模型。
+[kanbanniang](https://github.com/Vanessa219/kanbanniang) 收集并整理了多款 Live2D 模型。
 
 ## 授权
 
@@ -10,8 +10,8 @@ kanbanniang 使用 [MIT](https://opensource.org/licenses/MIT) 开源协议。
 
 ## 社区
 
-* [讨论区](https://hacpai.com/tag/kanbanniang)
-* [报告问题](https://github.com/b3log/kanbanniang/issues/new/choose)
+* [讨论区](https://hacpai.com/tag/yuru-chara)
+* [报告问题](https://github.com/Vanessa219/kanbanniang/issues/new/choose)
 
 
 ## 鸣谢
