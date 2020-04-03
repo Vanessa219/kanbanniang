@@ -4,17 +4,13 @@
     left: 0;
     height: 250px;
     cursor: move;
-}
-
-.solo-kanbanniang-bg {
     background-size: cover;
-    background-image: url(https://img.hacpai.com/file/2020/04/sakura1-7c5c89a9.gif);
     background-color: rgba(255, 255, 255, 0.6);
-    border-color: rgba(0, 0, 0, 0.3);
+    background-image: url(https://cdn.jsdelivr.net/npm/kanbanniang-tia/background/sakura1.gif);
+    border-color: rgba(0, 0, 0, 0.16);
     border-style: dashed dashed none;
     border-radius: 50% 50% 30% 30%;
     border-width: 6px;
-    overflow: visible;
 }
 
 .solo-kanbanniang:hover .solo-kanbanniang__tool {

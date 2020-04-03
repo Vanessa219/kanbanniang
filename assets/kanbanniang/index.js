@@ -1,17 +1,17 @@
 var soloKanbanniang = {
   clearTime: '',
-  showMessage: function(text, timeout) {
+  showMessage: function (text, timeout) {
     if (sessionStorage.getItem('soloKanbanniang') === 'close') {
-      return;
+      return
     }
     if (Array.isArray(text)) {
-      text = text[Math.floor(Math.random() * text.length + 1) - 1];
+      text = text[Math.floor(Math.random() * text.length + 1) - 1]
     }
-    $('.solo-kanbanniang__tip').html(text).fadeTo(200, 1);
-    clearTimeout(this.clearTime);
-    this.clearTime = setTimeout(function() {
-      $('.solo-kanbanniang__tip').fadeTo(200, 0);
-    }, timeout);
+    $('.solo-kanbanniang__tip').html(text).fadeTo(200, 1)
+    clearTimeout(this.clearTime)
+    this.clearTime = setTimeout(function () {
+      $('.solo-kanbanniang__tip').fadeTo(200, 0)
+    }, timeout)
   },
   _initMove: function () {
     if (sessionStorage.soloKanbanniangX) {
@@ -20,253 +20,236 @@ var soloKanbanniang = {
     if (sessionStorage.soloKanbanniangY) {
       $('.solo-kanbanniang').css('top', sessionStorage.soloKanbanniangY + 'px')
     }
-    $('.solo-kanbanniang').mousedown(function(event) {
-      var _document = document;
+    $('.solo-kanbanniang').mousedown(function (event) {
+      var _document = document
       if (!event) {
-        event = window.event;
+        event = window.event
       }
-      var dialog = this;
+      var dialog = this
       var x = event.clientX - parseInt(dialog.style.left || 0),
-        y = event.clientY - parseInt(dialog.style.top ||  $(window).height() - $(dialog).height());
-      _document.ondragstart = "return false;";
-      _document.onselectstart = "return false;";
-      _document.onselect = "document.selection.empty();";
+        y = event.clientY -
+          parseInt(dialog.style.top || $(window).height() - $(dialog).height())
+      _document.ondragstart = 'return false;'
+      _document.onselectstart = 'return false;'
+      _document.onselect = 'document.selection.empty();'
 
       if (this.setCapture) {
-        this.setCapture();
+        this.setCapture()
       } else if (window.captureEvents) {
-        window.captureEvents(Event.MOUSEMOVE|Event.MOUSEUP);
+        window.captureEvents(Event.MOUSEMOVE | Event.MOUSEUP)
       }
 
-      _document.onmousemove = function(event) {
+      _document.onmousemove = function (event) {
         if (!event) {
-          event = window.event;
+          event = window.event
         }
         var positionX = event.clientX - x,
-          positionY = event.clientY - y;
+          positionY = event.clientY - y
         if (positionX < 0) {
-          positionX = 0;
+          positionX = 0
         }
         if (positionX > $(window).width() - $(dialog).width()) {
-          positionX = $(window).width() - $(dialog).width();
+          positionX = $(window).width() - $(dialog).width()
         }
         if (positionY < 0) {
-          positionY = 0;
+          positionY = 0
         }
         if (positionY > $(window).height() - $(dialog).height()) {
-          positionY = $(window).height() - $(dialog).height();
+          positionY = $(window).height() - $(dialog).height()
         }
-        dialog.style.left = positionX + "px";
-        dialog.style.top = positionY + "px";
-        sessionStorage.setItem('soloKanbanniangX', positionX);
-        sessionStorage.setItem('soloKanbanniangY', positionY);
-      };
-
-      _document.onmouseup = function() {
-        if (this.releaseCapture) {
-          this.releaseCapture();
-        } else if(window.captureEvents) {
-          window.captureEvents(Event.MOUSEMOVE|Event.MOUSEUP);
-        }
-        _document.onmousemove = null;
-        _document.onmouseup = null;
-        _document.ondragstart = null;
-        _document.onselectstart = null;
-        _document.onselect = null;
+        dialog.style.left = positionX + 'px'
+        dialog.style.top = positionY + 'px'
+        sessionStorage.setItem('soloKanbanniangX', positionX)
+        sessionStorage.setItem('soloKanbanniangY', positionY)
       }
-    });
+
+      _document.onmouseup = function () {
+        if (this.releaseCapture) {
+          this.releaseCapture()
+        } else if (window.captureEvents) {
+          window.captureEvents(Event.MOUSEMOVE | Event.MOUSEUP)
+        }
+        _document.onmousemove = null
+        _document.onmouseup = null
+        _document.ondragstart = null
+        _document.onselectstart = null
+        _document.onselect = null
+      }
+    })
   },
-  _initTips: function() {
+  _initTips: function () {
     $.ajax({
       cache: true,
       url: 'https://cdn.jsdelivr.net/npm/kanbanniang/tips.json',
       dataType: 'json',
-      success: function(result) {
-        $.each(result.mouseover, function(index, tips) {
-          $(document).on('mouseover', tips.selector, function() {
+      success: function (result) {
+        $.each(result.mouseover, function (index, tips) {
+          $(document).on('mouseover', tips.selector, function () {
             soloKanbanniang.showMessage(
-                tips.text.replace('{text}', $.trim($(this).text()).substr(0, 42)), 3000);
-          });
-        });
-        $.each(result.click, function(index, tips) {
-          $(document).on('click', tips.selector, function() {
+              tips.text.replace('{text}', $.trim($(this).text()).substr(0, 42)),
+              3000)
+          })
+        })
+        $.each(result.click, function (index, tips) {
+          $(document).on('click', tips.selector, function () {
             var text = tips.text[Math.floor(Math.random() * tips.text.length +
-                1) - 1];
-            soloKanbanniang.showMessage(text, 3000, true);
-          });
-        });
-        $.each(result.seasons, function(index, tips) {
-          var now = new Date();
-          var after = tips.date.split('-')[0];
-          var before = tips.date.split('-')[1] || after;
+              1) - 1]
+            soloKanbanniang.showMessage(text, 3000, true)
+          })
+        })
+        $.each(result.seasons, function (index, tips) {
+          var now = new Date()
+          var after = tips.date.split('-')[0]
+          var before = tips.date.split('-')[1] || after
 
           if ((after.split('/')[0] <= now.getMonth() + 1 &&
-              now.getMonth() + 1 <= before.split('/')[0]) &&
-              (after.split('/')[1] <= now.getDate() &&
-                  now.getDate() <= before.split('/')[1])) {
+            now.getMonth() + 1 <= before.split('/')[0]) &&
+            (after.split('/')[1] <= now.getDate() &&
+              now.getDate() <= before.split('/')[1])) {
             soloKanbanniang.showMessage(
-                tips.text.replace('{year}', now.getFullYear()), 6000, true);
+              tips.text.replace('{year}', now.getFullYear()), 6000, true)
           }
-        });
-      }
-    });
+        })
+      },
+    })
   },
-  _initMenu: function() {
-    $('#soloKanbanniangHome').click(function() {
-      window.location = Label.servePath;
-    });
+  _initMenu: function () {
+    $('#soloKanbanniangHome').click(function () {
+      window.location = Label.servePath
+    })
 
-    $('#soloKanbanniangRSS').click(function() {
-      window.location = Label.servePath + '/rss.xml';
-    });
+    $('#soloKanbanniangRSS').click(function () {
+      window.location = Label.servePath + '/rss.xml'
+    })
 
-    $('#soloKanbanniangGithub').click(function() {
-      window.location = 'https://github.com/b3log/solo';
-    });
+    $('#soloKanbanniangGithub').click(function () {
+      window.location = 'https://github.com/b3log/solo'
+    })
 
-    $('#soloKanbanniangChat').click(function() {
-      soloKanbanniang.showChat();
-      soloKanbanniang.bgOnChat && soloKanbanniang.bgChange();
-    });
+    $('#soloKanbanniangChat').click(function () {
+      soloKanbanniang.showChat()
+      soloKanbanniang.bgChange()
+    })
 
-    $('#soloKanbanniangChange').click(function() {
-      loadlive2d('soloKanbanniang', 'https://hacpai.com/kanbanniang/model?t=' + (new Date()).getTime(),
-          soloKanbanniang.showMessage('我的新衣服好看嘛', 3000, true));
-      soloKanbanniang.bgOnChange && soloKanbanniang.bgChange();
-    });
+    $('#soloKanbanniangChange').click(function () {
+      loadlive2d('soloKanbanniang',
+        'https://hacpai.com/kanbanniang/model?t=' + (new Date()).getTime(),
+        soloKanbanniang.showMessage('我的新衣服好看嘛', 3000, true))
+      soloKanbanniang.bgChange()
+    })
 
-    $('#soloKanbanniangClose').click(function() {
-      soloKanbanniang.showMessage('愿你有一天能与重要的人重逢', 1300, true);
-      sessionStorage.setItem('soloKanbanniang', 'close');
-      window.setTimeout(function() {
-        $('.solo-kanbanniang').hide();
-      }, 1300);
-    });
+    $('#soloKanbanniangClose').click(function () {
+      soloKanbanniang.showMessage('愿你有一天能与重要的人重逢', 1300, true)
+      sessionStorage.setItem('soloKanbanniang', 'close')
+      window.setTimeout(function () {
+        $('.solo-kanbanniang').hide()
+      }, 1300)
+    })
 
-    $('#soloKanbanniangPhoto').click(function() {
-      soloKanbanniang.showMessage('照好了嘛，是不是很可爱呢？', 5000, true);
-      window.Live2D.captureName = 'solo.png';
-      window.Live2D.captureFrame = true;
-    });
+    $('#soloKanbanniangPhoto').click(function () {
+      soloKanbanniang.showMessage('照好了嘛，是不是很可爱呢？', 5000, true)
+      window.Live2D.captureName = 'solo.png'
+      window.Live2D.captureFrame = true
+    })
   },
-  _initFirstMsg: function() {
-    var text;
-    var referrer = document.createElement('a');
+  _initFirstMsg: function () {
+    var text
+    var referrer = document.createElement('a')
     if (document.referrer !== '') {
-      referrer.href = document.referrer;
+      referrer.href = document.referrer
     }
 
     if (referrer.href !== '' && referrer.hostname !==
-        Label.servePath.split('//')[1].split(':')[0]) {
-      var referrer = document.createElement('a');
-      referrer.href = document.referrer;
+      Label.servePath.split('//')[1].split(':')[0]) {
+      var referrer = document.createElement('a')
+      referrer.href = document.referrer
       text = 'Hello! 来自 <span style="color:#4285f4;">' + referrer.hostname +
-          '</span> 的朋友';
-      var domain = referrer.hostname.split('.')[1];
+        '</span> 的朋友'
+      var domain = referrer.hostname.split('.')[1]
       if (domain == 'baidu') {
         text = 'Hello! 来自 百度搜索 的朋友<br>你是搜索 <span style="color:#4285f4;">' +
-            referrer.search.split('&wd=')[1].split('&')[0] + '</span> 找到的我吗？';
+          referrer.search.split('&wd=')[1].split('&')[0] + '</span> 找到的我吗？'
       } else if (domain == 'so') {
         text = 'Hello! 来自 360搜索 的朋友<br>你是搜索 <span style="color:#4285f4;">' +
-            referrer.search.split('&q=')[1].split('&')[0] + '</span> 找到的我吗？';
+          referrer.search.split('&q=')[1].split('&')[0] + '</span> 找到的我吗？'
       } else if (domain == 'google') {
         text = 'Hello! 来自 谷歌搜索 的朋友<br>欢迎阅读<span style="color:#4285f4;">『' +
-            document.title.split(' - ')[0] + '』</span>';
+          document.title.split(' - ')[0] + '』</span>'
       }
     } else {
-      var now = (new Date()).getHours();
+      var now = (new Date()).getHours()
       if (now > 23 || now <= 5) {
-        text = '你是夜猫子呀？这么晚还不睡觉，明天起的来嘛';
+        text = '你是夜猫子呀？这么晚还不睡觉，明天起的来嘛'
       } else if (now > 5 && now <= 7) {
-        text = '早上好！一日之计在于晨，美好的一天就要开始了';
+        text = '早上好！一日之计在于晨，美好的一天就要开始了'
       } else if (now > 7 && now <= 11) {
-        text = '上午好！工作顺利嘛，不要久坐，多起来走动走动哦！';
+        text = '上午好！工作顺利嘛，不要久坐，多起来走动走动哦！'
       } else if (now > 11 && now <= 14) {
-        text = '中午了，工作了一个上午，现在是午餐时间！';
+        text = '中午了，工作了一个上午，现在是午餐时间！'
       } else if (now > 14 && now <= 17) {
-        text = '午后很容易犯困呢，今天的运动目标完成了吗？';
+        text = '午后很容易犯困呢，今天的运动目标完成了吗？'
       } else if (now > 17 && now <= 19) {
-        text = '傍晚了！窗外夕阳的景色很美丽呢，最美不过夕阳红~';
+        text = '傍晚了！窗外夕阳的景色很美丽呢，最美不过夕阳红~'
       } else if (now > 19 && now <= 21) {
-        text = '晚上好，今天过得怎么样？';
+        text = '晚上好，今天过得怎么样？'
       } else if (now > 21 && now <= 23) {
-        text = '已经这么晚了呀，早点休息吧，晚安~';
+        text = '已经这么晚了呀，早点休息吧，晚安~'
       } else {
-        text = '嗨~ 快来逗我玩吧！';
+        text = '嗨~ 快来逗我玩吧！'
       }
     }
-    soloKanbanniang.showMessage(text, 6000);
+    soloKanbanniang.showMessage(text, 6000)
   },
-  init: function() {
-    this._initTips();
-    this._initMenu();
-    this._initFirstMsg();
-    this._initMove();
-    window.setInterval(soloKanbanniang.showChat, 30000);
+  init: function () {
+    this._initTips()
+    this._initMenu()
+    this._initFirstMsg()
+    this._initMove()
 
-    $(document).on('copy', function() {
-      soloKanbanniang.showMessage('你都复制了些什么呀，转载要记得加上出处哦', 5000, true);
-    });
+    soloKanbanniang.bgChange()
+
+    window.setInterval(soloKanbanniang.showChat, 30000)
+
+    $(document).on('copy', function () {
+      soloKanbanniang.showMessage('你都复制了些什么呀，转载要记得加上出处哦', 5000, true)
+    })
   },
   showChat: function () {
     $.getJSON(
-        'https://api.imjad.cn/hitokoto/?cat=&charset=utf-8&length=55&encode=json',
-        function(result) {
-          soloKanbanniang.showMessage(result.hitokoto, 5000);
-        });
-  },
-  bgConfig: {
-    bgOnLoad: true,
-    bgOnChat: true,
-    bgOnChange: true
+      'https://api.imjad.cn/hitokoto/?cat=&charset=utf-8&length=55&encode=json',
+      function (result) {
+        soloKanbanniang.showMessage(result.hitokoto, 5000)
+      })
   },
   bgChange: function () {
-    var bgLength = soloKanbanniang.bgArr.length,
-      $kanbanniang = $('.solo-kanbanniang');
-
-    if (bgLength && $kanbanniang.hasClass('solo-kanbanniang-bg')) {
-      $kanbanniang.css('background-image', 'url(' + soloKanbanniang.bgArr[parseInt(Math.random() * bgLength, 10)] + ')');
-    }
-
-    soloKanbanniang.bgOnLoad = $kanbanniang.hasClass('solo-kanbanniang-bg--onload');
-    soloKanbanniang.bgOnChat = $kanbanniang.hasClass('solo-kanbanniang-bg--onchat');
-    soloKanbanniang.bgOnChange = $kanbanniang.hasClass('solo-kanbanniang-bg--onchange');
+    $('.solo-kanbanniang').
+      css('background-image',
+        'url(https://cdn.jsdelivr.net/npm/kanbanniang-tia/background/sakura' +
+        Math.floor(Math.random() * 11) + '.gif)')
   },
-  bgArr: [
-    'https://img.hacpai.com/file/2020/04/sakura1-7c5c89a9.gif',
-    'https://img.hacpai.com/file/2020/04/sakura2-d2e9f3b8.gif',
-    'https://img.hacpai.com/file/2020/04/sakura3-ce8f5465.gif',
-    'https://img.hacpai.com/file/2020/04/sakura4-527ebe22.gif',
-    'https://img.hacpai.com/file/2020/04/sakura5-c6b39f52.gif',
-    'https://img.hacpai.com/file/2020/04/sakura6-90b69bc1.gif',
-    'https://img.hacpai.com/file/2020/04/sakura7-498d8afa.gif',
-    'https://img.hacpai.com/file/2020/04/sakura8-456c4a4d.gif',
-    'https://img.hacpai.com/file/2020/04/sakura9-39eea852.gif',
-    'https://img.hacpai.com/file/2020/04/sakura10-82df20c2.gif',
-    'https://img.hacpai.com/file/2020/04/sakura11-3e0085a6.gif'
-  ]
-};
+}
 
 if (navigator.userAgent.indexOf('MSIE') === -1 && $(window).width() > 720) {
-    $(document).ready(function () {
-        if (sessionStorage.getItem('soloKanbanniang') === 'close') {
-            $('.solo-kanbanniang').remove();
-            return;
-        }
+  $(document).ready(function () {
+    if (sessionStorage.getItem('soloKanbanniang') === 'close') {
+      $('.solo-kanbanniang').remove()
+      return
+    }
 
-        $.ajax({
-            url: 'https://cdn.jsdelivr.net/npm/kanbanniang@0.2.6/live2d.js',
-            dataType: "script",
-            cache: true,
-            success: function () {
-                soloKanbanniang.init();
+    $.ajax({
+      url: 'https://cdn.jsdelivr.net/npm/kanbanniang@0.2.6/live2d.js',
+      dataType: 'script',
+      cache: true,
+      success: function () {
+        soloKanbanniang.init()
 
-                loadlive2d('soloKanbanniang', 'https://hacpai.com/kanbanniang/model?t=' + (new Date()).getTime());
-            }
-        });
-    });
-} else {
-    $(document).ready(function () {
-        $('.solo-kanbanniang').remove()
+        loadlive2d('soloKanbanniang',
+          'https://hacpai.com/kanbanniang/model?t=' + (new Date()).getTime())
+      },
     })
+  })
+} else {
+  $(document).ready(function () {
+    $('.solo-kanbanniang').remove()
+  })
 }
