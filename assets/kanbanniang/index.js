@@ -126,11 +126,13 @@ var soloKanbanniang = {
 
     $('#soloKanbanniangChat').click(function() {
       soloKanbanniang.showChat();
+      soloKanbanniang.bgOnChat && soloKanbanniang.bgChange();
     });
 
     $('#soloKanbanniangChange').click(function() {
       loadlive2d('soloKanbanniang', 'https://hacpai.com/kanbanniang/model?t=' + (new Date()).getTime(),
           soloKanbanniang.showMessage('我的新衣服好看嘛', 3000, true));
+      soloKanbanniang.bgOnChange && soloKanbanniang.bgChange();
     });
 
     $('#soloKanbanniangClose').click(function() {
@@ -212,7 +214,37 @@ var soloKanbanniang = {
         function(result) {
           soloKanbanniang.showMessage(result.hitokoto, 5000);
         });
-  }
+  },
+  bgConfig: {
+    bgOnLoad: true,
+    bgOnChat: true,
+    bgOnChange: true
+  },
+  bgChange: function () {
+    var bgLength = soloKanbanniang.bgArr.length,
+      $kanbanniang = $('.solo-kanbanniang');
+
+    if (bgLength && $kanbanniang.hasClass('solo-kanbanniang-bg')) {
+      $kanbanniang.css('background-image', 'url(' + soloKanbanniang.bgArr[parseInt(Math.random() * soloKanbanniang.bgArr.length, 10)] + ')');
+    }
+
+    soloKanbanniang.bgOnLoad = $kanbanniang.hasClass('solo-kanbanniang-bg--onload');
+    soloKanbanniang.bgOnChat = $kanbanniang.hasClass('solo-kanbanniang-bg--onchat');
+    soloKanbanniang.bgOnChange = $kanbanniang.hasClass('solo-kanbanniang-bg--onchange');
+  },
+  bgArr: [
+    'https://img.hacpai.com/file/2020/04/sakura1-7c5c89a9.gif',
+    'https://img.hacpai.com/file/2020/04/sakura2-d2e9f3b8.gif',
+    'https://img.hacpai.com/file/2020/04/sakura3-ce8f5465.gif',
+    'https://img.hacpai.com/file/2020/04/sakura4-527ebe22.gif',
+    'https://img.hacpai.com/file/2020/04/sakura5-c6b39f52.gif',
+    'https://img.hacpai.com/file/2020/04/sakura6-90b69bc1.gif',
+    'https://img.hacpai.com/file/2020/04/sakura7-498d8afa.gif',
+    'https://img.hacpai.com/file/2020/04/sakura8-456c4a4d.gif',
+    'https://img.hacpai.com/file/2020/04/sakura9-39eea852.gif',
+    'https://img.hacpai.com/file/2020/04/sakura10-82df20c2.gif',
+    'https://img.hacpai.com/file/2020/04/sakura11-3e0085a6.gif'
+  ]
 };
 
 if (navigator.userAgent.indexOf('MSIE') === -1 && $(window).width() > 720) {
