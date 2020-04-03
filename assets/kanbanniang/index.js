@@ -225,7 +225,7 @@ var soloKanbanniang = {
       $kanbanniang = $('.solo-kanbanniang');
 
     if (bgLength && $kanbanniang.hasClass('solo-kanbanniang-bg')) {
-      $kanbanniang.css('background-image', 'url(' + soloKanbanniang.bgArr[parseInt(Math.random() * soloKanbanniang.bgArr.length, 10)] + ')');
+      $kanbanniang.css('background-image', 'url(' + soloKanbanniang.bgArr[parseInt(Math.random() * bgLength, 10)] + ')');
     }
 
     soloKanbanniang.bgOnLoad = $kanbanniang.hasClass('solo-kanbanniang-bg--onload');
