@@ -215,11 +215,13 @@ var soloKanbanniang = {
     })
   },
   showChat: function () {
-    $.getJSON(
-      'https://api.imjad.cn/hitokoto/?cat=&charset=utf-8&length=55&encode=json',
-      function (result) {
-        soloKanbanniang.showMessage(result.hitokoto, 5000)
-      })
+    if (sessionStorage.getItem('soloKanbanniang') !== 'close') {
+      $.getJSON(
+        'https://api.imjad.cn/hitokoto/?cat=&charset=utf-8&length=55&encode=json',
+        function (result) {
+          soloKanbanniang.showMessage(result.hitokoto, 5000)
+        })
+    }
   },
   bgChange: function () {
     $('.solo-kanbanniang').
