@@ -10,7 +10,7 @@ kanbanniang 使用 [MIT](https://opensource.org/licenses/MIT) 开源协议。
 
 ## 社区
 
-* [讨论区](https://hacpai.com/tag/kanbanniang)
+* [讨论区](https://ld246.com/tag/kanbanniang)
 * [报告问题](https://github.com/b3log/kanbanniang/issues/new/choose)
 
 

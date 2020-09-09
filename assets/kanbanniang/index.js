@@ -133,7 +133,7 @@ var soloKanbanniang = {
 
     $('#soloKanbanniangChange').click(function () {
       loadlive2d('soloKanbanniang',
-        'https://hacpai.com/kanbanniang/model?t=' + (new Date()).getTime(),
+        'https://ld246.com/kanbanniang/model?t=' + (new Date()).getTime(),
         soloKanbanniang.showMessage('我的新衣服好看嘛', 3000, true))
       soloKanbanniang.bgChange()
     })
@@ -246,7 +246,7 @@ if (navigator.userAgent.indexOf('MSIE') === -1 && $(window).width() > 720) {
         soloKanbanniang.init()
 
         loadlive2d('soloKanbanniang',
-          'https://hacpai.com/kanbanniang/model?t=' + (new Date()).getTime())
+          'https://ld246.com/kanbanniang/model?t=' + (new Date()).getTime())
       },
     })
   })

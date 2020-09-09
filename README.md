@@ -10,7 +10,7 @@ kanbanniang 使用 [MIT](https://opensource.org/licenses/MIT) 开源协议。
 
 ## 社区
 
-* [讨论区](https://hacpai.com/tag/yuru-chara)
+* [讨论区](https://ld246.com/tag/yuru-chara)
 * [报告问题](https://github.com/Vanessa219/kanbanniang/issues/new/choose)
 
 
