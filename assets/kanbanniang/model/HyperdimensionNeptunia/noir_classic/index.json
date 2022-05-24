@@ -1,9 +1,9 @@
 {
   "model": "model/HyperdimensionNeptunia/noir_classic/model.moc",
   "textures": [
-    "https://cdn.jsdelivr.net/npm/kanbanniang/model/HyperdimensionNeptunia/noir/textures.1024/00.png",
-    "https://cdn.jsdelivr.net/npm/kanbanniang/model/HyperdimensionNeptunia/noir/textures.1024/01.png",
-    "https://cdn.jsdelivr.net/npm/kanbanniang/model/HyperdimensionNeptunia/noir_classic/textures.1024/02.png"
+    "https://unpkg.com/kanbanniang/model/HyperdimensionNeptunia/noir/textures.1024/00.png",
+    "https://unpkg.com/kanbanniang/model/HyperdimensionNeptunia/noir/textures.1024/01.png",
+    "https://unpkg.com/kanbanniang/model/HyperdimensionNeptunia/noir_classic/textures.1024/02.png"
   ],
   "physics": "model/HyperdimensionNeptunia/noir/physics.json",
   "pose": "model/HyperdimensionNeptunia/general/pose.json",

@@ -6,7 +6,7 @@
     cursor: move;
     background-size: cover;
     background-color: rgba(255, 255, 255, 0.6);
-    background-image: url(https://cdn.jsdelivr.net/npm/kanbanniang-tia/background/sakura1.gif);
+    background-image: url(https://unpkg.com/kanbanniang-tia/background/sakura1.gif);
     border-color: rgba(0, 0, 0, 0.16);
     border-style: dashed dashed none;
     border-radius: 50% 50% 30% 30%;

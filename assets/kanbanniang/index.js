@@ -80,7 +80,7 @@ var soloKanbanniang = {
   _initTips: function () {
     $.ajax({
       cache: true,
-      url: 'https://cdn.jsdelivr.net/npm/kanbanniang/tips.json',
+      url: 'https://unpkg.com/kanbanniang/tips.json',
       dataType: 'json',
       success: function (result) {
         $.each(result.mouseover, function (index, tips) {
@@ -226,7 +226,7 @@ var soloKanbanniang = {
   bgChange: function () {
     $('.solo-kanbanniang').
       css('background-image',
-        'url(https://cdn.jsdelivr.net/npm/kanbanniang-tia/background/sakura' +
+        'url(https://unpkg.com/kanbanniang-tia/background/sakura' +
         Math.floor(Math.random() * 11) + '.gif)')
   },
 }
@@ -239,7 +239,7 @@ if (navigator.userAgent.indexOf('MSIE') === -1 && $(window).width() > 720) {
     }
 
     $.ajax({
-      url: 'https://cdn.jsdelivr.net/npm/kanbanniang@0.2.6/live2d.js',
+      url: 'https://unpkg.com/kanbanniang@0.2.6/live2d.js',
       dataType: 'script',
       cache: true,
       success: function () {

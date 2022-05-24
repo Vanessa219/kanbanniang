@@ -1,15 +1,15 @@
 {
   "model": "model/ShizukuTalk/shizuku-pajama/model.moc",
   "textures": [
-    "https://cdn.jsdelivr.net/npm/kanbanniang-tia/model/ShizukuTalk/shizuku-pajama/textures.512/00.png",
-    "https://cdn.jsdelivr.net/npm/kanbanniang-tia/model/ShizukuTalk/shizuku-pajama/textures.512/01.png",
-    "https://cdn.jsdelivr.net/npm/kanbanniang-tia/model/ShizukuTalk/shizuku-pajama/textures.512/02.png",
-    "https://cdn.jsdelivr.net/npm/kanbanniang-tia/model/ShizukuTalk/shizuku-pajama/textures.512/03.png",
-    "https://cdn.jsdelivr.net/npm/kanbanniang-tia/model/ShizukuTalk/shizuku-pajama/textures.512/04.png",
-    "https://cdn.jsdelivr.net/npm/kanbanniang-tia/model/ShizukuTalk/shizuku-pajama/textures.512/05.png",
-    "https://cdn.jsdelivr.net/npm/kanbanniang-tia/model/ShizukuTalk/shizuku-pajama/textures.512/06.png",
-    "https://cdn.jsdelivr.net/npm/kanbanniang-tia/model/ShizukuTalk/shizuku-pajama/textures.512/07.png",
-    "https://cdn.jsdelivr.net/npm/kanbanniang-tia/model/ShizukuTalk/shizuku-pajama/textures.512/08.png"
+    "https://unpkg.com/kanbanniang-tia/model/ShizukuTalk/shizuku-pajama/textures.512/00.png",
+    "https://unpkg.com/kanbanniang-tia/model/ShizukuTalk/shizuku-pajama/textures.512/01.png",
+    "https://unpkg.com/kanbanniang-tia/model/ShizukuTalk/shizuku-pajama/textures.512/02.png",
+    "https://unpkg.com/kanbanniang-tia/model/ShizukuTalk/shizuku-pajama/textures.512/03.png",
+    "https://unpkg.com/kanbanniang-tia/model/ShizukuTalk/shizuku-pajama/textures.512/04.png",
+    "https://unpkg.com/kanbanniang-tia/model/ShizukuTalk/shizuku-pajama/textures.512/05.png",
+    "https://unpkg.com/kanbanniang-tia/model/ShizukuTalk/shizuku-pajama/textures.512/06.png",
+    "https://unpkg.com/kanbanniang-tia/model/ShizukuTalk/shizuku-pajama/textures.512/07.png",
+    "https://unpkg.com/kanbanniang-tia/model/ShizukuTalk/shizuku-pajama/textures.512/08.png"
   ],
   "physics": "model/ShizukuTalk/shizuku-48/physics.json",
   "pose": "model/ShizukuTalk/shizuku-pajama/pose.json",
